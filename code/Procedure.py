@@ -139,6 +139,7 @@ def BPR_train_ode(dataset, recommend_model, loss_class, epoch, neg_k=1, w=None):
                 all_times[1] = all_times[1].clamp_(min=all_times[0].item()+constraint_value, max=all_times[2].item()-constraint_value)
                 all_times[1] = all_times[1].clamp_(min=all_times[0].item()+constraint_value, max=final_time-2*constraint_value)
                 all_times[2] = all_times[2].clamp_(min=all_times[1].item()+constraint_value, max=final_time-constraint_value)
+
             elif ceiling == 1:
                 for n, time_n in enumerate(all_times):
                     start = n
