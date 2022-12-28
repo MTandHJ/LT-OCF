@@ -82,8 +82,48 @@ sh ltocf_gowalla_rk4_fixed.sh
 
 ## Usage
 
-### Gowalla
 
 ``` bash
-python main.py --dataset="gowalla" --model="ltocf" --solver="rk4" --adjoint=False --K=4 --learnable_time=True --dual_res=False --lr=1e-4 --lr_time=1e-6 --decay=1e-4 --topks="[20]" --comment="learnable_time" --tensorboard=1 --gpuid=0
+conda activate lt-ocf
+``` 
+
+hyper-parameters:
+
+- decay: [1.e-4, 1.e-3, 1.e-2]
+- K: [2, 3, 4]
+- lr: [1.e-5, 1.e-4, 1.e-3, 1.e-2]
+
+
+
+### Gowalla_m1
+
+``` bash
+python main.py --dataset="Gowalla_m1" --model="ltocf" --solver="rk4" --adjoint=False --K=4 --learnable_time=True --dual_res=False --lr=1e-4 --lr_time=1e-6 --decay=1e-4 --topks="[20]" --comment="learnable_time" --tensorboard=1 --gpuid=3
 ```
+
+### MovieLens1M_m2
+
+
+``` bash
+python main.py --dataset="MovieLens1M_m2" --model="ltocf" --solver="rk4" --adjoint=False --K=4 --learnable_time=True --dual_res=False --lr=1e-3 --lr_time=1e-6 --decay=1e-4 --topks="[20]" --comment="learnable_time" --gpuid=0
+```
+
+- {'precision': array([0.14490203]), 'recall': array([0.252613]), 'ndcg': array([0.24009889])}
+
+### AmazonCDs_m1
+
+
+``` bash
+python main.py --dataset="AmazonCDs_m1" --model="ltocf" --solver="rk4" --adjoint=False --K=4 --learnable_time=True --dual_res=False --lr=1e-3 --lr_time=1e-6 --decay=1e-4 --topks="[20]" --comment="learnable_time" --gpuid=1
+```
+
+- {'precision': array([0.0273657]), 'recall': array([0.15701499]), 'ndcg': array([0.09929412])}
+
+### AmazonElectronics_m1
+
+
+``` bash
+python main.py --dataset="AmazonElectronics_m1" --model="ltocf" --solver="rk4" --adjoint=False --K=4 --learnable_time=True --dual_res=False --lr=1e-4 --lr_time=1e-6 --decay=1e-3 --topks="[20]" --comment="learnable_time" --gpuid=2
+```
+
+- {'precision': array([0.01756098]), 'recall': array([0.12778234]), 'ndcg': array([0.07546926])}
